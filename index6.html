@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+        <head>
+            <script src="https://d3js.org/d3.v5.min.js"></script>
+        </head>
+        <body>         
+        
+            <script>
+                var canvas=d3.select("body")
+                             .append("svg")
+                             .attr("width",500)
+                             .attr("height",500)
+               
+                var circle = canvas.append("circle")
+                                   .attr("cx",50)
+                                   .attr("cy",50)
+                                   .attr("r",30);
+                                  
+                circle.transition()
+                      .duration(1500)
+                      .delay(1000)
+                      .attr("cx",300)
+                      .on("end", function() { d3.select(this).attr("fill","red"); } )
+                      .transition()
+                      .delay(1000)
+                      .attr("cy",300)
+                      .on("end",function(){d3.select(this).attr("fill","yellow");})
+                      .transition()
+                      .delay(1000)
+                      .attr("cx",200)
+                      .on("end",function(){d3.select(this).attr("fill","orange")})
+                      .transition()
+                      .attr("cy",200);
+               
+        
+            </script>
+            
+           
+        </body>
+        </html>
